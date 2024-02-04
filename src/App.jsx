@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import { useState, useEffect } from 'react';
 
 const Mark = ({angle, type}) => {
 return <div className={`marks marks--${type}`} style={{transform: `rotate(${angle}deg)`}}>
@@ -14,13 +15,28 @@ Mark.propTypes = {
   type: PropTypes.oneOf(['hour', 'minute']).isRequired,
 };
 
-const Hand = ({type}) => {
-  return <div className='clock-hand'>
-    <div className={`hand-body hand-body--type`}></div>
+const Hand = ({type, angle}) => {
+  return (
+   <div className='clock-hand' style={{transform: `rotate(${angle}deg)`}}>
+    <div className={`hand-body hand-body--${type}`}></div>
   </div>
+  )
 }
 
+Hand.propTypes = {
+  type: PropTypes.oneOf(['hour', 'minute']).isRequired,
+  angle: PropTypes.number.isRequired,
+};
+
 function App() {
+  const [time, setTime] = useState(new Date());
+
+  useEffect(() => {
+    const interval = setInterval(() => setTime(new Date()), 1000);
+    return () => {
+      clearInterval(interval);
+    };
+  },[])
 
   const renderFaceMark = () => {
     const marks = [];
@@ -37,9 +53,9 @@ function App() {
       <div className="clock">
         <div className="clock_face">
         {renderFaceMark()}
-        <Hand type={'hour'}/>
-        <Hand type={'minute'}/>
-        <Hand type={'seconds'}/>
+        <Hand type={'hour'} angle={30 * time?.getHours()}/>
+        <Hand type={'minute'} angle={6 * time?.getMinutes()}/>
+        <Hand type={'seconds'} angle={6 * time?.getSeconds()}/>
         </div>
       </div>
     </div>

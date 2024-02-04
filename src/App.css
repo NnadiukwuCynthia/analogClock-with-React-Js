@@ -19,13 +19,15 @@ body{
   content: "";
   width: 10px;
   height: 10px;
-  /* border-radius: 50%; */
+  border-radius: 50%;
   position: absolute;
   top: 50%;
   left: 50%;
   background-color: red;
-  transform: translate(-45%, -45%);
+  transform: translate(-44%, -45%);
+  z-index: 2;
 }
+
 .clock_face{
   position: absolute;
   top: 0;
@@ -52,9 +54,17 @@ body{
 
 .hand-body{
   background-color: rgb(4, 4, 71);
-  width: 10px;
+  width: 8px;
   position: absolute;
-  top: 12%;
+  top: 10%;
   bottom: 40%;
   
+}
+
+.hand-body--hour{
+  top: 22%;
+}
+.hand-body--seconds{
+  background-color: red;
+  width: 3px;
 }
