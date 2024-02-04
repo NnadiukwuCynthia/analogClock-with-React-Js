@@ -54,10 +54,11 @@ body{
 
 .hand-body{
   background-color: rgb(4, 4, 71);
-  width: 8px;
+  width: 10px;
   position: absolute;
   top: 10%;
   bottom: 40%;
+  transform: translate(-4px);
   
 }
 
