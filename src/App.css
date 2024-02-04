@@ -1,0 +1,60 @@
+body{
+  background-color: grey;
+}
+
+.clock_container{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.clock{
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background-color: #fff;
+  position: relative;
+}
+.clock::before{
+  content: "";
+  width: 10px;
+  height: 10px;
+  /* border-radius: 50%; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: red;
+  transform: translate(-45%, -45%);
+}
+.clock_face{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.marks{
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  top: 0;
+  bottom: 0;
+}
+
+.clock-hand{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 50%;
+  left: 50%;
+}
+
+.hand-body{
+  background-color: rgb(4, 4, 71);
+  width: 10px;
+  position: absolute;
+  top: 12%;
+  bottom: 40%;
+  
+}
